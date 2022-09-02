@@ -64,6 +64,8 @@ public class PlayerMove : MonoBehaviour
     {
        
         cameraAxisX += Input.GetAxis("Mouse X");
+         Quaternion newRotation = Quaternion.Euler(0, cameraAxisX, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, 2.5f * Time.deltaTime);
        
     }
 }
