@@ -59,7 +59,7 @@ public class CannonManager : MonoBehaviour
     {
         Gizmos.color = Color.magenta;
         Vector3 direction = ShootPoint.transform.TransformDirection(Vector3.forward) * rayDistance;
-        Gizmos.DrawLine(ShootPoint.position, direction);
+        Gizmos.DrawRay(ShootPoint.position, direction);
 
 
     }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class PortalManager1 : MonoBehaviour
 {
 
-    [SerializeField] private Transform ShootPoint;
+   [SerializeField] private Transform ShootPoint;
     [SerializeField] private Transform EndPoint;
 
-    
+   
 
     [SerializeField]
     [Range(1f, 20f)]
@@ -38,12 +38,12 @@ public class PortalManager1 : MonoBehaviour
     private void CannonRaycast()
     {
         RaycastHit hit;
-        if (Physics.Raycast(ShootPoint.position, EndPoint.position, out hit, rayDistance))
+        if (Physics.Raycast(ShootPoint.position, ShootPoint.transform.TransformDirection(Vector3.left), out hit, rayDistance))
         {
-            if (hit.transform.CompareTag("Player") )
+            if (hit.transform.CompareTag("Player"))
             {
-                Debug.Log("A PUNTO DE CRUZAR EL PORTAL");
-                
+                Debug.Log("INGRESANDO AL PORTAL");
+               
             }
 
         }
@@ -54,10 +54,11 @@ public class PortalManager1 : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Vector3 direction = ShootPoint.transform.TransformDirection(Vector3.forward) * rayDistance;
-        Gizmos.DrawLine(ShootPoint.position,EndPoint.position);
+        Vector3 direction = ShootPoint.transform.TransformDirection(Vector3.left) * rayDistance;
+        Gizmos.DrawRay(ShootPoint.position, direction);
 
 
     }
+
 
 }
