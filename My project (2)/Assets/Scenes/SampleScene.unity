@@ -439,7 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootPoint: {fileID: 1228094391}
   EndPoint: {fileID: 438148015}
-  rayDistance: 1
+  rayDistance: 8
 --- !u!1 &377505447
 GameObject:
   m_ObjectHideFlags: 0
