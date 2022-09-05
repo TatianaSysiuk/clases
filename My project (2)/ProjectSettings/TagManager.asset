@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Powerups
   - Munitions
+  - Weapons
   layers:
   - Default
   - TransparentFX

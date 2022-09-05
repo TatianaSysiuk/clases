@@ -6,6 +6,8 @@ public class PlayerCollision : MonoBehaviour
 {
     private PlayerData playerData;
 
+    [SerializeField] WeaponManager weaponManager;
+
     private void Start()
     {
         playerData = GetComponent<PlayerData>();
@@ -50,6 +52,20 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.CompareTag("Weapons")){
+//agregar el arma a la lista de armas
+            other.gameObject.SetActive(false);
+            weaponManager.WeaponList.Add(other.gameObject);
+            //cola
+            weaponManager.WeaponQueue.Enqueue(other.gameObject);
+            Debug.Log("ELEMENTOS EN LA COLA"+ weaponManager.WeaponQueue.Count);
+            //stack
+             weaponManager.WeaponStack.Push(other.gameObject);
+            Debug.Log("ELEMENTOS EN LA STACK"+ weaponManager.WeaponStack.Count);
+            //diccionario
+            weaponManager.WeaponDirectory.Add(other.gameObject.name,other.gameObject);
+            Debug.Log(weaponManager.WeaponDirectory[other.gameObject.name]);
+        }
 
     }
 
