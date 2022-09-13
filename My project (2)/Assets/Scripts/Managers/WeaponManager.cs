@@ -61,7 +61,7 @@ public Dictionary<string,GameObject> WeaponDirectory {get => weaponDirectory; se
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) EnableAllWeapon();
+       /* if (Input.GetKeyDown(KeyCode.Q)) EnableAllWeapon();
         //input queq
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -89,6 +89,49 @@ public Dictionary<string,GameObject> WeaponDirectory {get => weaponDirectory; se
         if (Input.GetKeyDown(KeyCode.Alpha3)) weaponDirectory["WeaponA"].SetActive(true);
         if (Input.GetKeyDown(KeyCode.Alpha4)) weaponDirectory["WeaponB"].SetActive(true);
         if (Input.GetKeyDown(KeyCode.Alpha5)) weaponDirectory["WeaponD"].SetActive(true);
-        if (Input.GetKeyDown(KeyCode.Alpha6)) weaponDirectory["WeaponC"].SetActive(true);
+        if (Input.GetKeyDown(KeyCode.Alpha6)) weaponDirectory["WeaponC"].SetActive(true);*/
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) EquipWeapon(weaponDirectory["WeaponA"]);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) EquipWeapon(weaponDirectory["WeaponB"]);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) EquipWeapon(weaponDirectory["WeaponC"]);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) EquipWeapon(weaponDirectory["WeaponD"]);
     }
+
+    //método para verificar si la cola está vacía.
+    private bool IsQueueEmpty()
+    {
+        return weaponQueue.Count > 0;
+    }
+
+    //método para verificar si la pila está vacía.
+
+    private bool IsStackEmpty()
+    {
+        return weaponStack.Count > 0;
+    }
+
+
+    //método que permite equipoar el arma al player
+    private void EquipWeapon(GameObject weapon)
+    {
+        DetachWeapons ();
+        weapon.SetActive (true);
+        weapon.transform.parent = playerHand;
+        weapon.transform.localPosition = Vector3.zero;
+    }
+
+
+//método para remparentar todos los hijos
+    private void DetachWeapons()
+    { //foreach para recorrer todos los hijos
+        foreach(Transform child in playerHand)
+        {
+            child.parent = null;
+            child.transform.position = new Vector3(Random.Range(0f,3f), 1f,Random.Range(0f,3f));
+            child.gameObject.SetActive(true);
+        }
+    }
+
+
+
 }
