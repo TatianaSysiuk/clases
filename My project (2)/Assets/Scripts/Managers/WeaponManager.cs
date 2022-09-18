@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     
-    // Start is called before the first frame update
+   // Start is called before the first frame update
     // SOLO TENGO 3 ARMAS -> ES AGRUPAMIENTO FIJO
     [SerializeField] GameObject[] weapons;
 
@@ -113,8 +113,6 @@ public class WeaponManager : MonoBehaviour
         weapon.transform.localPosition = Vector3.zero;
         HUDmanager.Instance.SetSelectedText(weapon.gameObject.name);
         HUDmanager.EnableWeapon(indexIcon);
-       
-        
     }
 
     //Método para remparentar todos los hijos.
@@ -128,6 +126,4 @@ public class WeaponManager : MonoBehaviour
             child.gameObject.SetActive(true);
         }
     }
-
-
 }

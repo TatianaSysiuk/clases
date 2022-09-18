@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HUDmanager : MonoBehaviour
 
 
-{ // Start is called before the first frame update
+{  // Start is called before the first frame update
     private static HUDmanager instance;
     public static HUDmanager Instance { get => instance; }
 
