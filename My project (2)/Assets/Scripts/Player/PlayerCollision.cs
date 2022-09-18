@@ -78,4 +78,20 @@ public class PlayerCollision : MonoBehaviour
     {
 
     }
+//cuando un mouse ingresa a un collider
+ private void OnMouseEnter() {
+
+    HUDmanager.Instance.SetSelectedText(gameObject.name);
+    
+}
+
+private void OnMouseExit() {
+    HUDmanager.Instance.SetSelectedText("");
+}
+
+private void OnMouseDown() {
+    HUDmanager.Instance.SetSelectedText("CLICKED");
+}
+
+
 }

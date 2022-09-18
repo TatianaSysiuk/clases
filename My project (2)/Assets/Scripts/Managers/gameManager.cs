@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
-    private static int score;
+    // Start is called before the first frame update
 
+    private static int score;
     public static int Score { get => score; set => score = value; }
 
+     public static gameManager instance;
+    
 
-public static gameManager instance;
-
-private void Awake() {
-    if(instance == null){
-
-        instance = this;
+    private void Awake()
+    {
+        Debug.Log("EJECUTANDO AWAKE");
+        if (instance == null)
+        {   
+            instance = this;
+            Debug.Log(instance);
+            score = 0;
+            DontDestroyOnLoad(gameObject);
+        }else
+        {
+            Destroy(gameObject);
+        }
     }
-    else{
-        Destroy (gameObject);
-    }
-}
-
 
 
 
