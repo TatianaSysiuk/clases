@@ -729,7 +729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchoredPosition: {x: 0, y: -188}
   m_SizeDelta: {x: 300, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446651449
@@ -2142,10 +2142,10 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -4484903146865716551, guid: 5fb5bc8eb3be2ef42b969d350a76781d, type: 2}
     value: {fileID: 32040260}
-  - key: {fileID: -4662279551403066051, guid: 5fb5bc8eb3be2ef42b969d350a76781d, type: 2}
-    value: {fileID: 1654491778}
-  - key: {fileID: -6609896757747048932, guid: 5fb5bc8eb3be2ef42b969d350a76781d, type: 2}
-    value: {fileID: 446651452}
+  - key: {fileID: -8192638223882876650, guid: 5fb5bc8eb3be2ef42b969d350a76781d, type: 2}
+    value: {fileID: 1654491773}
+  - key: {fileID: 381324679338602112, guid: 5fb5bc8eb3be2ef42b969d350a76781d, type: 2}
+    value: {fileID: 446651447}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1654491773
