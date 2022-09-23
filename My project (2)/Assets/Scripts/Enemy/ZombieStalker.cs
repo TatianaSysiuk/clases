@@ -10,21 +10,21 @@ public class ZombieStalker : Zombie
 
     protected override void Move()
     {
-        
+
         LookPlayer();
-        
+
         Vector3 direction = (PlayerTransform.position - transform.position);
-        
+
         if (direction.magnitude > 1f)
         {
-            
+
             transform.position += direction.normalized * zombieData.speed * Time.deltaTime;
         }
     }
 
     protected void LookPlayer()
     {
-        
+
         Quaternion newRotation = Quaternion.LookRotation(PlayerTransform.position - transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, 1.5f * Time.deltaTime);
     }

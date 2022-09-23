@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class HUDmanager : MonoBehaviour
-
-
-{  // Start is called before the first frame update
+{
+    // Start is called before the first frame update
     private static HUDmanager instance;
     public static HUDmanager Instance { get => instance; }
 
     [SerializeField] private Text selectedText;
     [SerializeField] private GameObject weaponPanel;
     [SerializeField] private GameObject buyPanel;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject winPanel;
+
     [SerializeField] private Slider hpBar;
 
     private void Awake()
@@ -22,6 +25,9 @@ public class HUDmanager : MonoBehaviour
         {
             instance = this;
             Debug.Log(instance);
+            PlayerCollision.OnDead += GameOver;
+            PlayerCollision.OnChangeHP += SetHPBar;
+            PlayerEvents.OnWin += WinUI;
         }
         else
         {
@@ -76,5 +82,23 @@ public class HUDmanager : MonoBehaviour
     public static void SetHPBar(int newValue)
     {
         instance.hpBar.value = newValue;
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("RESPUESTA DESDE OTRO SCRIPT");
+        gameOverPanel.SetActive(true);
+    }
+
+    private void WinUI()
+    {
+        winPanel.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        PlayerCollision.OnDead -= GameOver;
+        PlayerCollision.OnChangeHP -= SetHPBar;
+        PlayerEvents.OnWin -= WinUI;
     }
 }
